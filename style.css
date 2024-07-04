@@ -1,36 +1,241 @@
+/* Reset default margin and padding */
 @import url("https://fonts.googleapis.com/css?family=Roboto:300");
-html,
-body {
-  height: 100%;
-  width: 100%;
-  margin: 0;
-}
-body {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background: linear-gradient(to right bottom, #873572, black);
-}
-a {
-  display: inline-block;
-  color: lightgrey;
-  font-size: 16px;
-  font-family: "Roboto", sans-serif;
-  white-space: nowrap;
-  padding: 12px;
-  border: 1px solid white;
-  border-radius: 30px;
-  text-decoration: none;
-  transition: all 0.15s ease-in-out;
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
-a:hover {
-  background: rgba(0, 0, 0, 0.23);
-  color: white;
-  transform: scale(1.03);
-  text-decoration: none;
-}
-a:active {
-  transform: scale(0.98);
+/* Global body styling */
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #f8f9fa;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
 }
 
+/* Container for the product details */
+.product-container {
+    display: flex;
+    max-width: 1024px;
+    background: white;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    border-radius: 8px;
+    overflow: hidden;
+    margin: 20px;
+}
+
+/* Left section for product image and thumbnails */
+.product-image {
+    flex: 1;
+    padding: 16px;
+    border-right: 1px solid #ccc; /* Add border between image and details */
+}
+
+.product-image img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+}
+
+.thumbnails {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 8px;
+}
+
+.thumbnails img {
+    width: 20%;
+    cursor: pointer;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+}
+
+/* Right section for product details */
+.product-details {
+    flex: 1;
+    padding: 16px;
+}
+
+.product-details h3 {
+    font-size: 18px;
+    margin-bottom: 8px;
+}
+
+.product-details h1 {
+    font-size: 24px;
+    margin: 8px 0;
+}
+
+.product-details p {
+    font-size: 20px;
+    margin: 8px 0;
+}
+
+.discount {
+    color: red;
+    margin-left: 8px;
+}
+
+.original-price {
+    text-decoration: line-through;
+    margin-left: 8px;
+    color: #999;
+}
+
+/* Color and size selectors */
+.color-selector, .size-selector {
+    margin: 16px 0;
+    border-top: 1px solid #ccc; /* Add border between details and selectors */
+    padding-top: 16px; /* Space above selectors */
+}
+
+.options-container {
+    display: flex;
+    gap: 8px;
+}
+
+.color-option {
+    background-color: #f0f0f0;
+    color: #333;
+    border: 3px solid transparent;
+    padding: 8px 16px;
+    margin-right: 8px;
+    cursor: pointer;
+    border-radius: 4px;
+    width: 40px;
+    height: 40px;
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+.size-option {
+    background-color: #f0f0f0;
+    color: #333;
+    border: 3px solid transparent; /* Size option border */
+    padding: 8px 16px;
+    margin-right: 8px;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: background-color 0.3s ease, border-color 0.3s ease; /* Transition for smooth hover effect */
+}
+
+.color-option.selected {
+    border-color: brown;
+}
+
+.size-option.selected {
+    border-color: brown;
+}
+
+/* Quantity selector */
+.quantity-and-cart {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 16px;
+    border-top: 1px solid #ccc; /* Add border between selectors and quantity */
+    padding-top: 16px; /* Space above quantity section */
+}
+
+.quantity-selector {
+    display: flex;
+    align-items: center;
+}
+
+.quantity-input {
+    display: flex;
+    align-items: center;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.quantity-input button {
+    background-color: #f8f9fa;
+    color: #000;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.quantity-input button:hover {
+    background-color: #e9ecef;
+}
+
+.quantity-input input[type="number"] {
+    border: none;
+    padding: 10px 12px;
+    font-size: 14px;
+    text-align: center;
+    outline: none;
+    width: 60px; /* Adjust width of the input field as needed */
+}
+
+/* Add to cart button */
+#add-to-cart {
+    background-color: #28a745;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+}
+
+#add-to-cart:hover {
+    background-color: #218838;
+}
+
+/* Product description */
+.product-description {
+    margin-top: 16px;
+    line-height: 1.6;
+}
+
+/* Section titles */
+.section {
+    margin-top: 16px;
+    position: relative;
+}
+
+.section-title {
+    font-size: 20px;
+    background-color: white;
+    padding: 0 10px;
+    position: absolute;
+    top: -12px;
+    left: 20px;
+    color: #333;
+}
+
+/* Remove default hr styling */
+.section:before {
+    content: "";
+    display: block;
+    border-top: 1px solid #ccc;
+    margin-bottom: 16px; /* Adjust spacing as needed */
+    width: calc(100% - 40px); /* Adjust width as needed */
+    position: absolute;
+    top: -8px; /* Adjust position to align with section title */
+    left: 20px; /* Adjust position to align with section title */
+}
+
+/* Cart message */
+.cart-message {
+    background-color: 103, 219, 96;
+    color: #333;
+    padding: 10px 20px;
+    border-radius: 8px;
+    border: 2px solid #28a745; /* Green border */
+    font-size: 16px;
+    margin-bottom: 16px; /* Space below message */
+    font-weight: bold;
+    text-align: center;
+}
